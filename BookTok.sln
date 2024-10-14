@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTok.API", "BookTok.API\BookTok.API.csproj", "{583335AF-7613-40E4-8E7B-E46847492EA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookTok.API", "BookTok.API\BookTok.API.csproj", "{583335AF-7613-40E4-8E7B-E46847492EA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTok.Domain", "BookTok.Domain\BookTok.Domain.csproj", "{3053C81F-B8A8-4017-A9B8-80D47B0B824A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTok.Infrastructure", "BookTok.Infrastructure\BookTok.Infrastructure.csproj", "{DAFAE2B3-1416-4C59-813B-8130215F42BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTok.Application", "BookTok.Application\BookTok.Application.csproj", "{290CE36E-4802-448E-B0F2-C44B8FF4620A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{583335AF-7613-40E4-8E7B-E46847492EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{583335AF-7613-40E4-8E7B-E46847492EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{583335AF-7613-40E4-8E7B-E46847492EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3053C81F-B8A8-4017-A9B8-80D47B0B824A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3053C81F-B8A8-4017-A9B8-80D47B0B824A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3053C81F-B8A8-4017-A9B8-80D47B0B824A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3053C81F-B8A8-4017-A9B8-80D47B0B824A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAFAE2B3-1416-4C59-813B-8130215F42BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAFAE2B3-1416-4C59-813B-8130215F42BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAFAE2B3-1416-4C59-813B-8130215F42BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAFAE2B3-1416-4C59-813B-8130215F42BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{290CE36E-4802-448E-B0F2-C44B8FF4620A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290CE36E-4802-448E-B0F2-C44B8FF4620A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290CE36E-4802-448E-B0F2-C44B8FF4620A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290CE36E-4802-448E-B0F2-C44B8FF4620A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
