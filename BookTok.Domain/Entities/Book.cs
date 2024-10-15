@@ -8,6 +8,7 @@ public class Book
     public int PageCount { get; set; }
     public int AverageRating { get; set; }
     public int RatingsCount { get; set; }
+    public Guid CategoryId { get; set; }
     public ICollection<Author> Authors { get; set; }
 
     public ICollection<Quote> Quotes { get; set; }
