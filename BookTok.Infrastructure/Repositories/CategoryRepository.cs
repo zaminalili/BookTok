@@ -39,9 +39,9 @@ internal class CategoryRepository(BooktokDbContext dbContext): ICategoryReposito
         return await dbContext.Categories.Include(c => c.Books).FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public async Task UpdateAsync(Author author)
+    public async Task UpdateAsync(Category category)
     {
-        dbContext.Update(author);
+        dbContext.Categories.Update(category);
         await dbContext.SaveChangesAsync();
     }
 }

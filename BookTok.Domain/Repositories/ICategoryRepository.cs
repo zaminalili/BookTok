@@ -8,5 +8,5 @@ public interface ICategoryRepository
     Task<IEnumerable<Category>> GetAllAsync();
     Task<IEnumerable<Category>> GetAllRemovedAsync();
     Task<Category?> GetByIdAsync(Guid id);
-    Task UpdateAsync(Author author);
+    Task UpdateAsync(Category category);
 }

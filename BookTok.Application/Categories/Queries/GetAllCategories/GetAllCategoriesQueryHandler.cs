@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using BookTok.Application.Categories.Dtos;
-using BookTok.Application.Common;
 using BookTok.Domain.Repositories;
 using MediatR;
 
