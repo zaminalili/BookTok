@@ -1,4 +1,6 @@
-﻿namespace BookTok.API.Extensions;
+﻿using BookTok.API.Middlewares;
+
+namespace BookTok.API.Extensions;
 
 public static class WebApplicationBuilderExtension
 {
@@ -8,5 +10,7 @@ public static class WebApplicationBuilderExtension
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        builder.Services.AddScoped<ErrorHandlingMiddleware>();
     }
 }

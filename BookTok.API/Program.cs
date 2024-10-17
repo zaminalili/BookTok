@@ -1,4 +1,5 @@
 using BookTok.API.Extensions;
+using BookTok.API.Middlewares;
 using BookTok.Application.Extensions;
 using BookTok.Infrastructure.Extensions;
 using BookTok.Infrastructure.Seeders;
@@ -24,6 +25,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
