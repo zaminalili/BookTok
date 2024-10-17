@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BookTok.Application\BookTok.Application.csproj" />
     <ProjectReference Include="..\BookTok.Infrastructure\BookTok.Infrastructure.csproj" />
   </ItemGroup>
