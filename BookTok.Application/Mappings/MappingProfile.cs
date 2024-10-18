@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BookTok.Application.Authors.Commands.CreateAuthor;
 using BookTok.Application.Authors.Dtos;
+using BookTok.Application.Books.Dtos;
 using BookTok.Application.Categories.Commands.CreateCategory;
 using BookTok.Application.Categories.Commands.UpdateCategory;
 using BookTok.Application.Categories.Dtos;
@@ -18,5 +19,7 @@ internal class MappingProfile: Profile
 
         CreateMap<Author, AuthorDto>().ReverseMap();
         CreateMap<CreateAuthorCommand, Author>().ReverseMap();
+
+        CreateMap<Book, BookDto>().ReverseMap();
     }
 }
