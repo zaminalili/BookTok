@@ -60,9 +60,9 @@ internal class AuthorRepository(BooktokDbContext dbContext): IAuthorRepository
 
         var baseQuery = dbContext.Authors
             .Include(a => a.Books)
-            .Where(a => searchPhraseLower == null
-            || a.FullName.ToLower().Contains(searchPhraseLower)
-            || a.IsVerified == isVerified);
+            .Where(a => (string.IsNullOrEmpty(searchPhraseLower) 
+                        || a.FullName.ToLower().Contains(searchPhraseLower))
+                        && a.IsVerified == isVerified);
 
         int totalCount = baseQuery.Count();
         var authors = await baseQuery
