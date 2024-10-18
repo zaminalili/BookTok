@@ -9,7 +9,7 @@ namespace BookTok.Application.Books.Queries.GetAllBooks;
 
 public class GetAllBooksQueryHandler(IBookRepository bookRepository, IMapper mapper) : IRequestHandler<GetAllBooksQuery, PaginationResult<BookDto>>
 {
-    async Task<PaginationResult<BookDto>> IRequestHandler<GetAllBooksQuery, PaginationResult<BookDto>>.Handle(GetAllBooksQuery request, CancellationToken cancellationToken)
+    public async Task<PaginationResult<BookDto>> Handle(GetAllBooksQuery request, CancellationToken cancellationToken)
     {
         var (books, totalCount) = await bookRepository.GetAllAsync(request.searchPhrase, request.pageSize, request.pageNumber);
 

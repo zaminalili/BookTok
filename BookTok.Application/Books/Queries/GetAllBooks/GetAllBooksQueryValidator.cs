@@ -2,7 +2,7 @@
 
 namespace BookTok.Application.Books.Queries.GetAllBooks;
 
-internal class GetAllBooksQueryValidator: AbstractValidator<GetAllBooksQuery>
+public class GetAllBooksQueryValidator: AbstractValidator<GetAllBooksQuery>
 {
     private int[] allowPageSizes = [5, 10, 15];
     public GetAllBooksQueryValidator()
