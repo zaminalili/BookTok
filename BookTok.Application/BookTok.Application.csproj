@@ -17,8 +17,4 @@
     <ProjectReference Include="..\BookTok.Domain\BookTok.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Books\Commands\" />
-  </ItemGroup>
-
 </Project>
