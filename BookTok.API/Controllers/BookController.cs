@@ -1,4 +1,5 @@
-﻿using BookTok.Application.Books.Commands.CreateBook;
+﻿using BookTok.Application.BookAuthors.Command;
+using BookTok.Application.Books.Commands.CreateBook;
 using BookTok.Application.Books.Commands.DeleteBook;
 using BookTok.Application.Books.Commands.UpdateBook;
 using BookTok.Application.Books.Queries.GetAllBooks;
@@ -48,6 +49,14 @@ namespace BookTok.API.Controllers
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             await mediator.Send(new DeleteBookCommand(id));
+            return NoContent();
+        }
+
+        [HttpPost]
+        [Route("{bookId}/authors/{authorId}")]
+        public async Task<IActionResult> AddAuthorToBook([FromRoute] Guid bookId, [FromRoute] Guid authorId)
+        {
+            await mediator.Send(new AddBookAuthorCommand(bookId, authorId));
             return NoContent();
         }
     }
