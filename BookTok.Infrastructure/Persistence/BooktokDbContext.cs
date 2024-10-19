@@ -1,5 +1,6 @@
 ﻿using BookTok.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace BookTok.Infrastructure.Persistence;
 
@@ -11,6 +12,7 @@ internal class BooktokDbContext(DbContextOptions<BooktokDbContext> options): DbC
     public DbSet<Review> Reviews { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<BookAuthor> BookAuthors { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -25,5 +27,18 @@ internal class BooktokDbContext(DbContextOptions<BooktokDbContext> options): DbC
             .HasOne(ub => ub.Book)
             .WithMany(ub => ub.Users)
             .HasForeignKey(ub => ub.BookId);
+
+        builder.Entity<BookAuthor>()
+            .HasKey(ba => new { ba.BookId, ba.AuthorId });
+
+        builder.Entity<BookAuthor>()
+            .HasOne(ba => ba.Book)
+            .WithMany(b => b.BookAuthors)
+            .HasForeignKey(ba => ba.BookId);
+
+        builder.Entity<BookAuthor>()
+            .HasOne(ba => ba.Author)
+            .WithMany(a => a.BookAuthors)
+            .HasForeignKey(ba => ba.AuthorId);
     }
 }

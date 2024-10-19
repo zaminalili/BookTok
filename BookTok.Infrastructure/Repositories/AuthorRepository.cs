@@ -37,7 +37,7 @@ internal class AuthorRepository(BooktokDbContext dbContext): IAuthorRepository
     }
     public async Task<Author?> GetByIdAsync(Guid id)
     {
-        return await dbContext.Authors.Include(a => a.Books).FirstOrDefaultAsync(x => x.Id == id);
+        return await dbContext.Authors.Include(a => a.BookAuthors).FirstOrDefaultAsync(x => x.Id == id);
     }
 
     public async Task DeleteAsync(Author author)
@@ -59,7 +59,7 @@ internal class AuthorRepository(BooktokDbContext dbContext): IAuthorRepository
         var searchPhraseLower = searchPhrase?.ToLower();
 
         var baseQuery = dbContext.Authors
-            .Include(a => a.Books)
+            .Include(a => a.BookAuthors)
             .Where(a => (string.IsNullOrEmpty(searchPhraseLower) 
                         || a.FullName.ToLower().Contains(searchPhraseLower))
                         && a.IsVerified == isVerified);

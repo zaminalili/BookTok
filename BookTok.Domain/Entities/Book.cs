@@ -9,7 +9,7 @@ public class Book
     public int AverageRating { get; set; }
     public int RatingsCount { get; set; }
     public Guid CategoryId { get; set; }
-    public ICollection<Author> Authors { get; set; }
+    public ICollection<BookAuthor> BookAuthors { get; set; }
 
     public ICollection<Quote> Quotes { get; set; }
     public ICollection<Review> Reviews { get; set; }

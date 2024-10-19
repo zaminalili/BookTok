@@ -8,5 +8,5 @@ public class Author
     public string? AccountUsername { get; set; }
     public bool IsVerified { get; set; } = false;
 
-    public ICollection<Book> Books { get; set; }
+    public ICollection<BookAuthor> BookAuthors { get; set; }
 }

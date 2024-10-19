@@ -53,7 +53,7 @@ internal class BookRepository(BooktokDbContext dbContext): IBookRepository
     private IQueryable<Book> GetBooksWithIncludes()
     {
         return dbContext.Books
-            .Include(b => b.Authors)
+            .Include(b => b.BookAuthors)
             .Include(b => b.Quotes)
             .Include(b => b.Reviews)
             .Include(b => b.Users);
