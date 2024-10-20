@@ -1,6 +1,7 @@
 using BookTok.API.Extensions;
 using BookTok.API.Middlewares;
 using BookTok.Application.Extensions;
+using BookTok.Domain.Entities;
 using BookTok.Infrastructure.Extensions;
 using BookTok.Infrastructure.Seeders;
 
@@ -25,6 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.MapIdentityApi<User>();
 
 app.UseMiddleware<ErrorHandlingMiddleware>();
 

@@ -25,5 +25,7 @@ public static class ServiceCollectionExtension
         services.AddScoped<IQuoteRepository, QuoteRepository>();
         services.AddScoped<IReviewRepository, ReviewRepository>();
         services.AddScoped<IBookAuthorRepository, BookAuthorRepository>();
+
+        services.AddIdentityApiEndpoints<User>().AddEntityFrameworkStores<BooktokDbContext>();
     }
 }

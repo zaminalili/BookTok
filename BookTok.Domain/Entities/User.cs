@@ -1,6 +1,8 @@
-﻿namespace BookTok.Domain.Entities;
+﻿using Microsoft.AspNetCore.Identity;
 
-public class User
+namespace BookTok.Domain.Entities;
+
+public class User : IdentityUser
 {
     public Guid Id { get; set; }
     public ICollection<Quote> Quotes { get; set; }
