@@ -7,7 +7,7 @@ public class Quote
     public int PageNumber { get; set; }
     public DateTime DateCreated { get; set; } = DateTime.Now;
 
-    public Guid UserId { get; set; }
+    public string UserId { get; set; } = Guid.NewGuid().ToString();
     public Guid BookId { get; set; }
 
     public User User { get; set; }

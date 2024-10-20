@@ -4,7 +4,7 @@ namespace BookTok.Domain.Entities;
 
 public class User : IdentityUser
 {
-    public Guid Id { get; set; }
+    public string Id { get; set; } = Guid.NewGuid().ToString();
     public ICollection<Quote> Quotes { get; set; }
     public ICollection<Review> Reviews { get; set; }
 
