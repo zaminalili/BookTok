@@ -8,6 +8,9 @@ using BookTok.Application.Books.Dtos;
 using BookTok.Application.Categories.Commands.CreateCategory;
 using BookTok.Application.Categories.Commands.UpdateCategory;
 using BookTok.Application.Categories.Dtos;
+using BookTok.Application.Quotes.Commands.CreateQuote;
+using BookTok.Application.Quotes.Commands.UpdateQuote;
+using BookTok.Application.Quotes.Dtos;
 using BookTok.Domain.Entities;
 
 namespace BookTok.Application.Mappings;
@@ -28,5 +31,9 @@ internal class MappingProfile: Profile
         CreateMap<UpdateBookCommand, Book>().ReverseMap();
 
         CreateMap<AddBookAuthorCommand, BookAuthor>().ReverseMap();
+
+        CreateMap<Quote, QuoteDto>().ReverseMap();
+        CreateMap<CreateQuoteCommand, Quote>().ReverseMap();
+        CreateMap<UpdateQuoteCommand, Quote>().ReverseMap();
     }
 }
