@@ -27,7 +27,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapIdentityApi<User>();
+app.MapGroup("api/Identity").MapIdentityApi<User>();
 
 app.UseMiddleware<ErrorHandlingMiddleware>();
 
