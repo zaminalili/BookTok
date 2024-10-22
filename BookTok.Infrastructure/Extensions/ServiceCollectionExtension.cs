@@ -3,6 +3,7 @@ using BookTok.Domain.Repositories;
 using BookTok.Infrastructure.Persistence;
 using BookTok.Infrastructure.Repositories;
 using BookTok.Infrastructure.Seeders;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,8 @@ public static class ServiceCollectionExtension
         services.AddScoped<IReviewRepository, ReviewRepository>();
         services.AddScoped<IBookAuthorRepository, BookAuthorRepository>();
 
-        services.AddIdentityApiEndpoints<User>().AddEntityFrameworkStores<BooktokDbContext>();
+        services.AddIdentityApiEndpoints<User>()
+            .AddRoles<IdentityRole>()
+            .AddEntityFrameworkStores<BooktokDbContext>();
     }
 }

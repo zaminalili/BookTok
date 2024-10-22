@@ -1,5 +1,7 @@
-﻿using BookTok.Domain.Entities;
+﻿using BookTok.Domain.Constants;
+using BookTok.Domain.Entities;
 using BookTok.Infrastructure.Persistence;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookTok.Infrastructure.Seeders;
@@ -14,6 +16,12 @@ internal class BooktokSeeder(BooktokDbContext dbContext): IBooktokSeeder
             {
                 var categories = GetCategories();
                 dbContext.Categories.AddRange(categories);
+                await dbContext.SaveChangesAsync();
+            }
+
+            if(!dbContext.Roles.Any())
+            {
+                dbContext.Roles.AddRange(GetRoles());
                 await dbContext.SaveChangesAsync();
             }
         }
@@ -62,5 +70,17 @@ internal class BooktokSeeder(BooktokDbContext dbContext): IBooktokSeeder
             ];
 
         return categories;
+    }
+
+    private IEnumerable<IdentityRole> GetRoles()
+    {
+        List<IdentityRole> roles =
+            [
+                new(UserRoles.User),
+                new(UserRoles.Author),
+                new(UserRoles.Admin),
+            ];
+
+        return roles;
     }
 }
