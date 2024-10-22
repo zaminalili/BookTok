@@ -15,6 +15,10 @@ namespace BookTok.API.Middlewares
             {
                 await HandleExceptionAsync(context, 404, ex, ex.Message);
             }
+            catch (UserMismatchException ex)
+            {
+                await HandleExceptionAsync(context, 403, ex, ex.Message);
+            }
             catch (Exception ex)
             {
                 await HandleExceptionAsync(context, 500, ex, ex.Message);
