@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace BookTok.Application.User;
+namespace BookTok.Application.Users;
 
 public class UserContext(IHttpContextAccessor httpContextAccessor): IUserContext
 {

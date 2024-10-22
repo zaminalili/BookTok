@@ -2,7 +2,7 @@
 using BookTok.Domain.Entities;
 using BookTok.Domain.Repositories;
 using MediatR;
-using BookTok.Application.User;
+using BookTok.Application.Users;
 
 namespace BookTok.Application.Quotes.Commands.DeleteQuote;
 

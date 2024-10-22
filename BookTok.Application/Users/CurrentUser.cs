@@ -1,4 +1,4 @@
-﻿namespace BookTok.Application.User;
+﻿namespace BookTok.Application.Users;
 
 public record CurrentUser(string Id, string Email, IEnumerable<string> Roles)
 {

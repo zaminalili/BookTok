@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BookTok.Application.User;
+using BookTok.Application.Users;
 using BookTok.Domain.Entities;
 using BookTok.Domain.Exceptions;
 using BookTok.Domain.Repositories;
