@@ -3,16 +3,20 @@ using BookTok.Application.Categories.Commands.UpdateCategory;
 using BookTok.Application.Categories.Queries.GetAllCategories;
 using BookTok.Application.Categories.Queries.GetAllRemovedCategories;
 using BookTok.Application.Categories.Queries.GetCategoryById;
+using BookTok.Domain.Constants;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookTok.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = UserRoles.Admin)]
     public class CategoryController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var categories = await mediator.Send(new GetAllCategoriesQuery());
@@ -29,6 +33,7 @@ namespace BookTok.API.Controllers
 
         [HttpGet]
         [Route("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
             var categories = await mediator.Send(new GetCategoryByIdQuery(id));

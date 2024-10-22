@@ -4,7 +4,9 @@ using BookTok.Application.Authors.Commands.UpdateAuthor;
 using BookTok.Application.Authors.Queries.GetAllAuthors;
 using BookTok.Application.Authors.Queries.GetAllUnverifiedAuthors;
 using BookTok.Application.Authors.Queries.GetAuthorById;
+using BookTok.Domain.Constants;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookTok.API.Controllers
@@ -22,6 +24,7 @@ namespace BookTok.API.Controllers
 
         [HttpGet]
         [Route("unverified")]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> GetAllUnverified([FromQuery] GetAllUnverifiedAuthorsQuery query)
         {
             var authors = await mediator.Send(query);
@@ -38,6 +41,7 @@ namespace BookTok.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Create([FromBody] CreateAuthorCommand command)
         {
             Guid id = await mediator.Send(command);
@@ -47,6 +51,7 @@ namespace BookTok.API.Controllers
 
         [HttpPatch]
         [Route("{id}")]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateAuthorCommand command)
         {
             command.Id = id;
@@ -57,6 +62,7 @@ namespace BookTok.API.Controllers
 
         [HttpPatch]
         [Route("changeVerification/{id}")]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> ChangeVerification([FromRoute] Guid id)
         {
 

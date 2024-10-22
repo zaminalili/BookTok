@@ -4,16 +4,20 @@ using BookTok.Application.Books.Commands.DeleteBook;
 using BookTok.Application.Books.Commands.UpdateBook;
 using BookTok.Application.Books.Queries.GetAllBooks;
 using BookTok.Application.Books.Queries.GetBookById;
+using BookTok.Domain.Constants;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookTok.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = UserRoles.Author)]
     public class BookController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll([FromQuery] GetAllBooksQuery query)
         {
             var books = await mediator.Send(query);
@@ -22,6 +26,7 @@ namespace BookTok.API.Controllers
 
         [HttpGet]
         [Route("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
             var book = await mediator.Send(new GetBookByIdQuery(id));

@@ -4,12 +4,14 @@ using BookTok.Application.Quotes.Commands.UpdateQuote;
 using BookTok.Application.Quotes.Queries.GetAllQuotes;
 using BookTok.Application.Quotes.Queries.GetQuoteById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookTok.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class QuoteController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
