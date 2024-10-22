@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using BookTok.Application.User;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,5 +14,8 @@ public static class ServiceCollectionExtension
         services.AddAutoMapper(applicationAssembly);
         services.AddValidatorsFromAssembly(applicationAssembly).AddFluentValidationAutoValidation();
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(applicationAssembly));
+
+        services.AddHttpContextAccessor();
+        services.AddScoped<IUserContext, UserContext>();
     }
 }
